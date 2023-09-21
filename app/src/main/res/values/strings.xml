@@ -2,4 +2,7 @@
     <string name="app_name">Ziyu\'s Android Labs</string>
     <string name="hello_message">Hello world!</string>
     <string name="button_message">I‘m a button</string>
+    <string name="editMessage">I\'m an edit text</string>
+    <string name="button_text">I\'m a button</string>
+
 </resources>
