@@ -22,6 +22,33 @@
         android:text="@string/button_text"
          />
 
+    <CheckBox
+        android:id="@+id/coffeeCheckBox"
+        android:textSize="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:text="@string/coffee_text"
+        />
+
+    <Switch
+        android:id="@+id/coffeeSwitch"
+        android:textSize="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:text="@string/coffee_text"
+        />
+
+    <RadioButton
+        android:id="@+id/coffeeRadioButton"
+        android:textSize="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:text="@string/coffee_text"
+        />
+
     <EditText
         android:id="@+id/myEditText"
         android:textSize="40dp"

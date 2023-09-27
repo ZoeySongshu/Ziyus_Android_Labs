@@ -7,8 +7,13 @@ import androidx.lifecycle.ViewModelProvider;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.Switch;
 import android.widget.TextView;
+
 
 import algonquin.cst2335.wang0935.R;
 import algonquin.cst2335.wang0935.data.MainViewModel;
@@ -37,6 +42,8 @@ public class MainActivity extends AppCompatActivity {
 
         EditText et = binding.myEditText;
 
+
+
         viewModel.userString.observe(this, new Observer<String>() {
             @Override
             public void onChanged(String s) {
@@ -52,6 +59,37 @@ public class MainActivity extends AppCompatActivity {
                 b.setText("You clicked the button");
 
             });
+
+
+        CheckBox cb = binding.coffeeCheckBox;
+
+        Switch sw = binding.coffeeSwitch;
+
+        RadioButton rb = binding.coffeeRadioButton;
+
+        cb.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            viewModel.getCoffeeOrNot().postValue( isChecked );
+        });
+
+        sw.setOnCheckedChangeListener((btn, getCoffeeOrNot) -> {
+            viewModel.getCoffeeOrNot().postValue( getCoffeeOrNot );
+        });
+
+        rb.setOnCheckedChangeListener((btn, getCoffeeOrNot) -> {
+            viewModel.getCoffeeOrNot().postValue( getCoffeeOrNot );
+        });
+
+        viewModel.getCoffeeOrNot().observe(this, newBool -> {
+                cb.setChecked(newBool);
+                sw.setChecked(newBool);
+                rb.setChecked(newBool);
+        });
+
+
+
+
+
+
         }
 
     }
