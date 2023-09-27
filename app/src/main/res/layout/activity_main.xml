@@ -56,4 +56,19 @@
         android:layout_height="wrap_content"
         android:text="@string/editMessage"
         />
+
+    <ImageView
+        android:src="@drawable/image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+
+    <ImageButton
+        android:id="@+id/myImageButton"
+        android:src="@drawable/image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+
+
 </LinearLayout>

@@ -85,7 +85,9 @@ public class MainActivity extends AppCompatActivity {
                 rb.setChecked(newBool);
         });
 
-
+binding.myImageButton.setOnClickListener( clik -> {
+    binding.myTextview.setText("You clicked the image");
+        });
 
 
 
