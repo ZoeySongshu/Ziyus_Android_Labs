@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import algonquin.cst2335.wang0935.R;
@@ -33,7 +34,17 @@ public class MainActivity extends AppCompatActivity {
         viewModel = new ViewModelProvider(this).get(MainViewModel.class);
 
 
-        setContentView( binding.getRoot());
+        binding.myImageButton.setOnClickListener(click -> {
+            int width = binding.myImageButton.getWidth();
+            int height = binding.myImageButton.getHeight();
+            binding.myTextview.setText("You clicked the image");
+
+            String toastMessage = "Width: " + width + " pixels\nHeight: " + height + " pixels";
+            Toast.makeText(getApplicationContext(), toastMessage, Toast.LENGTH_SHORT).show();
+        });
+
+
+        setContentView(binding.getRoot());
 
 
         TextView tv = binding.myTextview;
@@ -41,7 +52,6 @@ public class MainActivity extends AppCompatActivity {
         Button b = binding.mybutton;
 
         EditText et = binding.myEditText;
-
 
 
         viewModel.userString.observe(this, new Observer<String>() {
@@ -52,13 +62,13 @@ public class MainActivity extends AppCompatActivity {
         });
         et.setText(viewModel.userString.getValue());
         //OnClickListener
-        b.setOnClickListener (v  ->  {
+        b.setOnClickListener(v -> {
 
-                String string = et.getText().toString();
-                viewModel.userString.postValue( string );
-                b.setText("You clicked the button");
+            String string = et.getText().toString();
+            viewModel.userString.postValue(string);
+            b.setText("You clicked the button");
 
-            });
+        });
 
 
         CheckBox cb = binding.coffeeCheckBox;
@@ -67,31 +77,44 @@ public class MainActivity extends AppCompatActivity {
 
         RadioButton rb = binding.coffeeRadioButton;
 
+
         cb.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            viewModel.getCoffeeOrNot().postValue( isChecked );
+            viewModel.getCoffeeOrNot().postValue(isChecked);
+            showSelectionToast(isChecked);
         });
 
-        sw.setOnCheckedChangeListener((btn, getCoffeeOrNot) -> {
-            viewModel.getCoffeeOrNot().postValue( getCoffeeOrNot );
+        sw.setOnCheckedChangeListener((btn, isChecked) -> {
+            viewModel.getCoffeeOrNot().postValue(isChecked);
+
         });
 
-        rb.setOnCheckedChangeListener((btn, getCoffeeOrNot) -> {
-            viewModel.getCoffeeOrNot().postValue( getCoffeeOrNot );
+        rb.setOnCheckedChangeListener((btn, isChecked) -> {
+            viewModel.getCoffeeOrNot().postValue(isChecked);
+
         });
 
         viewModel.getCoffeeOrNot().observe(this, newBool -> {
-                cb.setChecked(newBool);
-                sw.setChecked(newBool);
-                rb.setChecked(newBool);
+            cb.setChecked(newBool);
+            sw.setChecked(newBool);
+            rb.setChecked(newBool);
         });
-
-binding.myImageButton.setOnClickListener( clik -> {
-    binding.myTextview.setText("You clicked the image");
-        });
-
-
-
-
-        }
 
     }
+
+    private void showSelectionToast(boolean isChecked) {
+        String message = "The value is now: " + (isChecked ? "On" : "Off");
+        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+    }
+}
+
+
+
+
+
+
+
+       
+
+ 
+
+
