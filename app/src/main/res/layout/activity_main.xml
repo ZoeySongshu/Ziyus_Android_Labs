@@ -5,6 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:layout_marginTop="27dp"
+    android:layout_marginBottom="27dp"
+    android:layout_marginLeft="48dp"
+    android:layout_marginRight="48dp"
     tools:context=".MainActivity">
 
 
@@ -15,6 +19,11 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:text="@string/button1"
+
+        android:nextFocusUp="@id/button"
+        android:nextFocusDown="@id/button"
+        android:nextFocusLeft="@id/button3"
+        android:nextFocusRight="@id/button2"
         app:layout_constraintEnd_toStartOf="@+id/button2"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,6 +35,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:text="@string/button2"
+
+        android:nextFocusUp="@id/button2"
+        android:nextFocusDown="@id/button2"
+        android:nextFocusLeft="@id/button"
+        android:nextFocusRight="@id/button3"
         app:layout_constraintEnd_toStartOf="@+id/button3"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/button"
@@ -37,6 +51,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:text="@string/button3"
+
+        android:nextFocusUp="@id/button3"
+        android:nextFocusDown="@id/button3"
+        android:nextFocusLeft="@id/button2"
+        android:nextFocusRight="@id/button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/button2"
@@ -51,13 +70,4 @@
         app:layout_constraintStart_toStartOf="@+id/button"
         app:layout_constraintTop_toBottomOf="@+id/button" />
 
-    <Switch
-        android:id="@+id/spin_switch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
-        android:text="@string/spin_message"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView" />
 </androidx.constraintlayout.widget.ConstraintLayout>
