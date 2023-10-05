@@ -20,8 +20,8 @@
         android:layout_marginTop="32dp"
         android:text="@string/button1"
 
-        android:nextFocusUp="@id/button"
-        android:nextFocusDown="@id/button"
+        android:nextFocusUp="@id/spin_switch"
+        android:nextFocusDown="@id/spin_switch"
         android:nextFocusLeft="@id/button3"
         android:nextFocusRight="@id/button2"
         app:layout_constraintEnd_toStartOf="@+id/button2"
@@ -36,8 +36,8 @@
         android:layout_marginStart="32dp"
         android:text="@string/button2"
 
-        android:nextFocusUp="@id/button2"
-        android:nextFocusDown="@id/button2"
+        android:nextFocusUp="@id/spin_switch"
+        android:nextFocusDown="@id/spin_switch"
         android:nextFocusLeft="@id/button"
         android:nextFocusRight="@id/button3"
         app:layout_constraintEnd_toStartOf="@+id/button3"
@@ -52,8 +52,8 @@
         android:layout_marginStart="32dp"
         android:text="@string/button3"
 
-        android:nextFocusUp="@id/button3"
-        android:nextFocusDown="@id/button3"
+        android:nextFocusUp="@id/spin_switch"
+        android:nextFocusDown="@id/spin_switch"
         android:nextFocusLeft="@id/button2"
         android:nextFocusRight="@id/button"
         app:layout_constraintEnd_toEndOf="parent"
@@ -67,7 +67,26 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:src="@drawable/image"
+
+        android:nextFocusUp="@id/button"
+        android:nextFocusDown="@id/spin_switch"
+        android:nextFocusLeft="@id/spin_switch"
+        android:nextFocusRight="@id/spin_switch"
         app:layout_constraintStart_toStartOf="@+id/button"
         app:layout_constraintTop_toBottomOf="@+id/button" />
 
+    <Switch
+        android:id="@+id/spin_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:text="@string/spin_message"
+
+        android:nextFocusUp="@id/button"
+        android:nextFocusDown="@id/button"
+        android:nextFocusLeft="@id/spin_switch"
+        android:nextFocusRight="@id/spin_switch"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView" />
 </androidx.constraintlayout.widget.ConstraintLayout>
